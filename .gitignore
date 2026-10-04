@@ -1,0 +1,22 @@
+# 1. Datos biométricos y audios (RGPD / Privacidad estricta)
+data_original/
+data_split/
+mobile_inbox/
+*.wav
+*.mp3
+*.flac
+labels.csv
+
+# 2. Pesos del modelo y checkpoints (Propiedad Intelectual)
+models/
+*.pt
+*.pth
+*.onnx
+*.bin
+
+# 3. Entorno virtual y temporales de sistema
+venv/
+env/
+__pycache__/
+*.pyc
+.DS_Store
