@@ -10,20 +10,21 @@ Centralized cloud AI solutions introduce critical data privacy risks when handli
 
 This repository presents an on-device bioacoustic classification system deployed on consumer hardware (Apple Silicon M4 via **Metal Performance Shaders - MPS**). The architecture converts non-stationary acoustic waveforms into compact 2D Mel-frequency representations and executes local inference using a custom-adapted **MobileNetV3-Small** neural network (6.2 MB disk footprint).
 
-[ Analog Microphone ]
-│ (PCM 16-bit @ 22,050 Hz)
-▼
+```text
+[ Analog Microphone ] 
+         │ (PCM 16-bit @ 22,050 Hz)
+         ▼
 [ DSP Feature Extraction ] ──► STFT (Hann 46.2 ms, N_FFT=1024, Hop=256, 128 Mel bands)
-│ (94.91% Data Dimensionality Reduction)
-▼
+         │ (94.91% Data Dimensionality Reduction)
+         ▼
 [ Normalized Mel Tensor ] ──► Shape: (3, 224, 224)
-│
-▼
+         │
+         ▼
 [ MobileNetV3-Small (Edge) ] ──► Accelerated via Apple Silicon MPS (<500 ms)
-│
-▼
-[ Binary Inference Engine ] ──► Output: Colic / Gas Distress (Sensitivity: 1.00) vs Fatigue / Sleep (Precision: 1.00)
-
+         │
+         ▼
+[ Binary Inference Engine ] ──► Colic Distress (Sens: 1.00) vs Fatigue / Sleep (Prec: 1.00)
+```
 ---
 
 ## 🔬 Digital Signal Processing (DSP) Pipeline
