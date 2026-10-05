@@ -85,4 +85,4 @@ The optimized edge model achieved an overall accuracy of **80.4%** evaluated exc
 **David Esteban Correa Alvarado**  
 *Computer Engineer & Business Administrator*  
 *Specialized in Audio DSP, Edge AI & Distributed Systems*  
-[LinkedIn](https://www.linkedin.com/in/david-esteban-correa-alvarado) | [GitHub Profile](https://github.com/dalva-code)
+[LinkedIn](https://www.linkedin.com/in/david-correa-5140a1232/) | [GitHub Profile](https://github.com/dalva-code)
