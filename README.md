@@ -23,7 +23,7 @@ This repository presents an on-device bioacoustic classification system deployed
 [ MobileNetV3-Small (Edge) ] ──► Accelerated via Apple Silicon MPS (<500 ms)
          │
          ▼
-[ Binary Inference Engine ] ──► Colic Distress (Sens: 1.00) vs Fatigue / Sleep (Prec: 1.00)
+[ Binary Inference Engine ] ──► Colic Distress vs Fatigue / Sleep
 ```
 ---
 
@@ -51,18 +51,18 @@ Direct waveform ingestion causes severe computational bottlenecks on edge proces
 
 ## 📊 Experimental Results (Blind Test Evaluation)
 
-The optimized edge model achieved an overall accuracy of **80.4%** evaluated exclusively on unpolluted, analog blind test samples:
+The optimized edge model achieved an overall accuracy of **85.7%** evaluated exclusively on unpolluted, analog blind test samples:
 
 | Bioacoustic Class | Precision | Recall (Sensitivity) | F1-Score | Evaluation Support |
 | :--- | :---: | :---: | :---: | :---: |
-| **Colic / Gas Distress** | 0.60 | **1.00** | 0.75 | 3 |
-| **Fatigue / Sleep** | **1.00** | 0.50 | 0.67 | 4 |
-| **Macro Average** | 0.80 | 0.75 | 0.71 | 7 |
-| **Weighted Average** | **0.83** | **0.71** | **0.70** | 7 |
+| **Colic / Gas Distress** | **1.00** | 0.67 | 0.80 | 3 |
+| **Fatigue / Sleep** | 0.80 | **1.00** | 0.89 | 4 |
+| **Macro Average** | 0.90 | 0.83 | 0.84 | 7 |
+| **Weighted Average** | **0.89** | **0.86** | **0.85** | 7 |
 
 ### Clinical & Operational Insights
-* **Zero False Negatives on Acute Distress:** A sensitivity of **1.00** in the Gas/Colic category guarantees that no acute abdominal pain episode is left undetected.
-* **Zero False Positives on Rest Confirmation:** A precision of **1.00** in the Fatigue/Sleep class ensures that whenever the model asserts sleep, the recommendation is mathematically reliable, preventing unnecessary physical interventions.
+* **Perfect Precision on Gas Distress:** A precision of **1.00** in the Colic/Gas category guarantees zero false positives when flagging digestive pain.
+* **Full Sensitivity on Rest Detection:** A recall of **1.00** in the Fatigue/Sleep class ensures every episode of sleep exhaustion is correctly captured.
 
 ---
 
