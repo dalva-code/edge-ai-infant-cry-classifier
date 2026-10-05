@@ -25,6 +25,7 @@ This repository presents an on-device bioacoustic classification system deployed
          ▼
 [ Binary Inference Engine ] ──► Colic Distress vs Fatigue / Sleep
 ```
+
 ---
 
 ## 🔬 Digital Signal Processing (DSP) Pipeline
@@ -43,8 +44,8 @@ Direct waveform ingestion causes severe computational bottlenecks on edge proces
 * **Backbone:** `MobileNetV3-Small` utilizing depthwise separable convolutions ($1 \times 1$ pointwise + $3 \times 3$ depthwise filters) to minimize multiply-accumulate (MAC) operations.
 * **Model Footprint:** **6.2 MB** compiled checkpoint (`best_model.pt`), operating well beneath edge device memory constraints.
 * **Two-Phase Transfer Learning:**
-  1. *Head Stabilization:* Base convolutional layers frozen; training isolated to the custom linear classification head for 5 epochs.
-  2. *Full Network Fine-Tuning:* Global gradient propagation enabled across all layers with a decaying learning rate schedule to adapt generic ImageNet filters to complex bioacoustic Mel textures.
+  * **Head Stabilization:** Base convolutional layers frozen; training isolated to the custom linear classification head for 5 epochs.
+  * **Full Network Fine-Tuning:** Global gradient propagation enabled across all layers with a decaying learning rate schedule to adapt generic ImageNet filters to complex bioacoustic Mel textures.
 * **Data Leakage Prevention:** Stratified splitting was strictly enforced **prior** to any data augmentation. Synthetic expansion (Gaussian white noise injection $\epsilon \sim \mathcal{N}(0, \sigma^2)$ and pitch shifting) was applied solely to the training split ($N=23 \to 170$ samples), preserving an untouched blind evaluation set ($N=7$).
 
 ---
